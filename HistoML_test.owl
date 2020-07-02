@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/peiliang/ontologies/HistoPAX.owl#"
+     xml:base="http://www.semanticweb.org/peiliang/ontologies/HistoPAX.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:obda="https://w3id.org/obda/vocabulary#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/peiliang/ontologies/HistoPAX.owl">
+        <owl:versionIRI rdf:resource="urn:absolute:1.0"/>
+    </owl:Ontology>
+
+    <owl:DatatypeProperty rdf:ID="author">
+        <rdfs:domain rdf:resource="#PublicationXref"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The authors of this publication, one per property value.</rdfs:comment>
+    </owl:DatatypeProperty>
+
+    <owl:Class rdf:ID="PublicationXref">
+        <rdfs:subClassOf rdf:resource="#Xref"/>
+        <owl:disjointWith rdf:resource="#RelationshipXref"/>
+        <owl:disjointWith rdf:resource="#UnificationXref"/>
+    </owl:Class>
+    <owl:Class rdf:ID="RelationshipXref">
+        <rdfs:subClassOf rdf:resource="#Xref"/>
+        <owl:disjointWith rdf:resource="#UnificationXref"/>
+    </owl:Class>
+    <owl:Class rdf:ID="UnificationXref">
+        <rdfs:subClassOf rdf:resource="#Xref"/>
+    </owl:Class>
+    <owl:Class rdf:ID="Xref">
+        <rdfs:subClassOf rdf:resource="#Utility"/>
+    </owl:Class>
+    <owl:Class rdf:ID="Utility"/>
+</rdf:RDF>
